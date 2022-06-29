@@ -1,4 +1,10 @@
 
+function mySearch() {
+  var cityID = document.getElementById("cityID").value;
+  console.log(cityID);
+
+  weatherBalloon(cityID);
+}
 
 function weatherBalloon( cityID ) {
   var key = 'aa47ed22f59d85790bac334cd475e6e5';
@@ -40,6 +46,7 @@ function drawWeather( d ) {
 window.onload = function() {
   weatherBalloon( 5128581 );
 }
+
 
 
 
