@@ -43,3 +43,6 @@ h1 {
 #location{
     padding-bottom: 15px;
 }
+.hide{
+    display: none;
+}

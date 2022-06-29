@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Current Weather</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
@@ -11,9 +12,9 @@
     <div id="description"></div>
     <h1 id="temp"></h1>
     <div id="location"></div>
-    <input type="text" name="cityID" id="cityID">
+    <input type="text" name="cityID" id="cityID" class="hide">
  	<!-- <input type="submit" value="Search"> -->
- 	<button onclick="mySearch()">Search</button>
+ 	<button class="hide" onclick="mySearch()">Search</button>
   </div>
 </body>
 </html>
