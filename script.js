@@ -68,7 +68,7 @@ function callInit(){
   })
 
   var getIP = 'http://ip-api.com/json/';
-  var openWeatherMap = 'http://api.openweathermap.org/data/2.5/weather'
+  var openWeatherMap = 'https://api.openweathermap.org/data/2.5/weather'
   $.getJSON(getIP).done(function(location) {
       $.getJSON(openWeatherMap, {
           lat: location.lat,
