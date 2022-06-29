@@ -62,29 +62,29 @@ window.onload = function() {
 // 5368361 - Los Angeles
 
 function callInit(){
-  var getIP = 'http://ip-api.com/json/';
-  $.getJSON(getIP).done(function(location) {
-      console.log(location)
-  })
+  // var getIP = 'http://ip-api.com/json/';
+  // $.getJSON(getIP).done(function(location) {
+  //     console.log(location)
+  // })
 
-  var getIP = 'http://ip-api.com/json/';
-  var openWeatherMap = 'https://api.openweathermap.org/data/2.5/weather'
-  $.getJSON(getIP).done(function(location) {
-      $.getJSON(openWeatherMap, {
-          lat: location.lat,
-          lon: location.lon,
-          units: 'metric',
-          appid: 'aa47ed22f59d85790bac334cd475e6e5'
-      }).done(function(weather) {
-          console.log(weather)
-          weatherOutput(weather);
-      })
-  })
+  // var getIP = 'http://ip-api.com/json/';
+  // var openWeatherMap = 'https://api.openweathermap.org/data/2.5/weather'
+  // $.getJSON(getIP).done(function(location) {
+  //     $.getJSON(openWeatherMap, {
+  //         lat: location.lat,
+  //         lon: location.lon,
+  //         units: 'metric',
+  //         appid: 'aa47ed22f59d85790bac334cd475e6e5'
+  //     }).done(function(weather) {
+  //         console.log(weather)
+  //         weatherOutput(weather);
+  //     })
+  // })
 
 
   // var openWeatherMap = 'https://api.openweathermap.org/data/2.5/weather'
-  // if (window.navigator && window.navigator.geolocation) {
-  //     window.navigator.geolocation.getCurrentPosition(function(position) {
+  // if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(function(position) {
   //         $.getJSON(openWeatherMap, {
   //             lat: position.coords.latitude,
   //             lon: position.coords.longitude,
@@ -96,7 +96,30 @@ function callInit(){
   //         })
   //     })
   // }
+  var lat;
+  var lon;
 
+  $.getJSON("https://ip-api.io/json/",
+    function(result) {
+        console.log(result);
+        console.log(result.latitude);
+        console.log(result.longitude);
+        lat = result.latitude;
+        lon = result.longitude;
+
+
+        var key = 'aa47ed22f59d85790bac334cd475e6e5';
+        fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + key)
+        .then(function(resp) { 
+          return resp.json() 
+        }) // Convert data to json
+        .then(function(data) {
+          weatherOutput(data); // Call weatherOutput
+        })
+        .catch(function() {
+          // catch any errors
+        });
+    });
 }
 
 function weatherOutput (d){
