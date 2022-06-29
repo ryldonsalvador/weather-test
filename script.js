@@ -62,40 +62,40 @@ window.onload = function() {
 // 5368361 - Los Angeles
 
 function callInit(){
-  // var getIP = 'http://ip-api.com/json/';
-  // $.getJSON(getIP).done(function(location) {
-  //     console.log(location)
-  // })
+  var getIP = 'http://ip-api.com/json/';
+  $.getJSON(getIP).done(function(location) {
+      console.log(location)
+  })
 
-  // var getIP = 'http://ip-api.com/json/';
-  // var openWeatherMap = 'http://api.openweathermap.org/data/2.5/weather'
-  // $.getJSON(getIP).done(function(location) {
-  //     $.getJSON(openWeatherMap, {
-  //         lat: location.lat,
-  //         lon: location.lon,
-  //         units: 'metric',
-  //         appid: 'aa47ed22f59d85790bac334cd475e6e5'
-  //     }).done(function(weather) {
-  //         console.log(weather)
-  //         weatherOutput(weather);
+  var getIP = 'http://ip-api.com/json/';
+  var openWeatherMap = 'http://api.openweathermap.org/data/2.5/weather'
+  $.getJSON(getIP).done(function(location) {
+      $.getJSON(openWeatherMap, {
+          lat: location.lat,
+          lon: location.lon,
+          units: 'metric',
+          appid: 'aa47ed22f59d85790bac334cd475e6e5'
+      }).done(function(weather) {
+          console.log(weather)
+          weatherOutput(weather);
+      })
+  })
+
+
+  // var openWeatherMap = 'https://api.openweathermap.org/data/2.5/weather'
+  // if (window.navigator && window.navigator.geolocation) {
+  //     window.navigator.geolocation.getCurrentPosition(function(position) {
+  //         $.getJSON(openWeatherMap, {
+  //             lat: position.coords.latitude,
+  //             lon: position.coords.longitude,
+  //             units: 'metric',
+  //             appid: 'aa47ed22f59d85790bac334cd475e6e5'
+  //         }).done(function(weather) {
+  //             console.log(weather)
+  //             weatherOutput(weather);
+  //         })
   //     })
-  // })
-
-
-var openWeatherMap = 'https://api.openweathermap.org/data/2.5/weather'
-if (window.navigator && window.navigator.geolocation) {
-    window.navigator.geolocation.getCurrentPosition(function(position) {
-        $.getJSON(openWeatherMap, {
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
-            units: 'metric',
-            appid: 'aa47ed22f59d85790bac334cd475e6e5'
-        }).done(function(weather) {
-            console.log(weather)
-            weatherOutput(weather);
-        })
-    })
-}
+  // }
 
 }
 
